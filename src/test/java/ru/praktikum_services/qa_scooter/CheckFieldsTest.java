@@ -7,7 +7,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.praktikum_services.qa_scooter.PageObject.HomePage;
-import ru.praktikum_services.qa_scooter.PageObject.OrderPageStep1;
+import ru.praktikum_services.qa_scooter.PageObject.OrderPageStepOne;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -37,23 +37,22 @@ public class CheckFieldsTest {
         };
     }
     @Test
-    public void approbeTest () {
+    public void checkFieldsTest () {
         driver.get("https://qa-scooter.praktikum-services.ru");
         //Создаем объекты классов
         HomePage objHomePage = new HomePage(driver);
-        OrderPageStep1 objOrderPageStep1 = new OrderPageStep1(driver);
+        OrderPageStepOne objOrderPageStepOne = new OrderPageStepOne(driver);
 
         // Шаги теста
         objHomePage.clickButtonClickAcceptCookies();
         objHomePage.clickButtonToOrder(true);
-        objOrderPageStep1.setFormStep1(name, surname, address, numberPhone);
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        objOrderPageStepOne.setFormStepOne(name, surname, address, numberPhone);
 
-        String textWarningName = objOrderPageStep1.getTextInputErrorMessagesName();
-        String textWarningSurname = objOrderPageStep1.getTextInputErrorMessagesSurname();
-        String textWarningAddress = objOrderPageStep1.getTextInputErrorMessagesAddress();
-        String textWarningPhoneNumber = objOrderPageStep1.getTextInputErrorMessagesPhoneNumber();
-        String textWarningMetro = objOrderPageStep1.getTextInputErrorMessagesMetro();
+        String textWarningName = objOrderPageStepOne.getTextInputErrorMessagesName();
+        String textWarningSurname = objOrderPageStepOne.getTextInputErrorMessagesSurname();
+        String textWarningAddress = objOrderPageStepOne.getTextInputErrorMessagesAddress();
+        String textWarningPhoneNumber = objOrderPageStepOne.getTextInputErrorMessagesPhoneNumber();
+        String textWarningMetro = objOrderPageStepOne.getTextInputErrorMessagesMetro();
 
         assertEquals(textWarningName, "Имя  валидно", textWarningName);
         assertEquals(textWarningSurname, "Фамилия  валидна", textWarningSurname);

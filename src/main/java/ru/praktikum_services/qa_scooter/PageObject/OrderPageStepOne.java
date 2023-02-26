@@ -1,15 +1,11 @@
 package ru.praktikum_services.qa_scooter.PageObject;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class OrderPageStep1 {
+public class OrderPageStepOne {
     private WebDriver driver;
     // Поле "Имя"
     private By inputFieldName = By.xpath(".//input[@placeholder = '* Имя']");
@@ -33,10 +29,8 @@ public class OrderPageStep1 {
     // элемент с текстом ошибки поля "Номер телефона "
     private By inputErrorMessagesPhoneNumber = By.xpath(".//input[@placeholder ='* Телефон: на него позвонит курьер']/parent::div/div[contains(@class, 'ErrorMessage') and contains(@class, 'Input_Visible')]");
     private By inputErrorMessagesMetro = By.xpath(".//div[contains(@class, 'MetroError')]");
-    // тело страницы
-    private By body = By.xpath(".//div[contains(text(), 'Для кого самокат')]");
 
-    public OrderPageStep1 (WebDriver driver){
+    public OrderPageStepOne(WebDriver driver){
         this.driver = driver;
     }
 
@@ -63,7 +57,7 @@ public class OrderPageStep1 {
     public void clickButtonNext (){
         driver.findElement(buttonNext).click();
     }
-    public  void setFormStep1 (String name, String surname, String address,String numberPhone){
+    public  void setFormStepOne (String name, String surname, String address, String numberPhone){
         setInputFieldName (name);
         setInputFieldSurname (surname);
         setInputFieldAddress (address);

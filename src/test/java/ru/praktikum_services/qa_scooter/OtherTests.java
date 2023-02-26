@@ -23,7 +23,7 @@ public class OtherTests {
 
     // Тест проверки Лого Самокат
     @Test
-    public void logoSamokatTest(){
+    public void checkLogoSamokatTest(){
         driver.get("https://qa-scooter.praktikum-services.ru");
         //Создаем объекты классов
         HomePage objHomePage = new HomePage(driver);
@@ -34,7 +34,7 @@ public class OtherTests {
     }
     // Тест проверки Лого Яндекс
     @Test
-    public void logoYandexTest (){
+    public void checkLogoYandexTest (){
         driver.get("https://qa-scooter.praktikum-services.ru");
         //Создаем объекты классов
         HomePage objHomePage = new HomePage(driver);

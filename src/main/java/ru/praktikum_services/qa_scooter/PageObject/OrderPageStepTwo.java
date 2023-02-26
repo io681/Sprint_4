@@ -2,12 +2,9 @@ package ru.praktikum_services.qa_scooter.PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 //Класс страницы заказа, форма №2 - "Про аренду"
-public class OrderPageStep2 {
+public class OrderPageStepTwo {
     private WebDriver driver;
     // Поле "Когда привезти самокат"
     private By inputFieldDate = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
@@ -28,11 +25,11 @@ public class OrderPageStep2 {
     // Элемент с текстом в попапе после успешного заказа
     private By messageOkAfterConfirm = By.xpath(".//div[@class = 'Order_ModalHeader__3FDaJ']");
 
-    public OrderPageStep2 (WebDriver driver){
+    public OrderPageStepTwo(WebDriver driver){
         this.driver = driver;
     }
-    // Методы для позитивного флоу
 
+    // Методы для позитивного флоу
     public  void clickInputFieldDate (){
         driver.findElement(inputFieldDate).click();
     }
@@ -42,7 +39,7 @@ public class OrderPageStep2 {
     public void clickInputFieldPeriod(){
         driver.findElement(inputFieldPeriod).click();
     }
-    public void ClickInputFieldPeriodTwoDays (){
+    public void clickInputFieldPeriodTwoDays(){
         driver.findElement(inputFieldPeriodTwoDays).click();
     }
     public void clickInputCheckBoxColor (){
@@ -60,11 +57,11 @@ public class OrderPageStep2 {
     public String getMessageOkAfterConfirm (){
         return driver.findElement(messageOkAfterConfirm).getText();
     }
-    public void setFormStep2 (String comment){
+    public void setFormStepTwo (String comment){
         clickInputFieldDate ();
         clickInputFieldToday ();
         clickInputFieldPeriod ();
-        ClickInputFieldPeriodTwoDays();
+        clickInputFieldPeriodTwoDays();
         clickInputCheckBoxColor();
         setInputFieldComment (comment);
         clickButtonToOrder();

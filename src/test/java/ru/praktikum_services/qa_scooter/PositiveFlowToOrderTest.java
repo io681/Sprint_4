@@ -39,14 +39,14 @@ public class PositiveFlowToOrderTest {
         driver.get("https://qa-scooter.praktikum-services.ru");
         //Создаем объекты классов
         HomePage objHomePage = new HomePage(driver);
-        OrderPageStep1 objOrderPageStep1= new OrderPageStep1(driver);
-        OrderPageStep2 objOrderPageStep2= new OrderPageStep2(driver);
+        OrderPageStepOne objOrderPageStepOne = new OrderPageStepOne(driver);
+        OrderPageStepTwo objOrderPageStepTwo = new OrderPageStepTwo(driver);
 
         // Шаги теста
         objHomePage.clickButtonToOrder(isPlaceButtonToOrder);
-        objOrderPageStep1.setFormStep1 (name, surname, address, numberPhone);
-        objOrderPageStep2.setFormStep2(comment);
-        String actual = objOrderPageStep2.getMessageOkAfterConfirm().replaceAll("\\r\\n|\\r|\\n", " ");
+        objOrderPageStepOne.setFormStepOne(name, surname, address, numberPhone);
+        objOrderPageStepTwo.setFormStepTwo(comment);
+        String actual = objOrderPageStepTwo.getMessageOkAfterConfirm().replaceAll("\\r\\n|\\r|\\n", " ");
 
         assertEquals("Ошибка позитивного флоу заказа", "Заказ оформлен  ", actual);
     }
