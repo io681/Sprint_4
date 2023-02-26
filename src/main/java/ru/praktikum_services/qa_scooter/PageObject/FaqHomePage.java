@@ -21,7 +21,7 @@ public class FaqHomePage {
     public FaqHomePage (WebDriver driver){
         this.driver = driver;
     }
-    public String [] getTextAnswersFaq () {
+    public String [] generateTextAnswersFaq() {
         List<WebElement> elements = driver.findElements(elementsFaqButtons);
         int i = 0;
         for (WebElement element : elements) {
@@ -33,5 +33,9 @@ public class FaqHomePage {
             i += 1;
         }
         return textAnswersFaqArray;
+    }
+    // геттер получения ответа по номеру списка
+    public String getTextAnswer (int numberAnswer) {
+        return textAnswersFaqArray[numberAnswer];
     }
 }
